@@ -1,15 +1,15 @@
 var mysql = require("mysql");
 var inq = require("inquirer");
 var table = require("console.table");
-var add = require("./lib/add");
-var update = require("./lib/update");
-var view = require("./lib/view");
+var add = require("./lib/addEmployee");
+var update = require("./lib/updateEmployee");
+var view = require("./lib/viewEmployee");
 
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "eumamgreshit5",
+    password: "Password",
     database: "company_db"
 });
 
