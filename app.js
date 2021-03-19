@@ -27,9 +27,9 @@ exports.start = () => {
             name: "choice",
             choices: [
                 "View All Employees",
-                "Add an Employee",
-                "Update an Employee Position",
-                "Close this application"
+                "Add Employee",
+                "Update Employee Role",
+                "EXIT"
             ]
         }
     ])
@@ -37,13 +37,13 @@ exports.start = () => {
             if (answer.choice === "View All Employees") {
                 view.viewAllEmployees();
             }
-            else if (answer.choice === "Add an Employee") {
+            else if (answer.choice === "Add Employee") {
                 add.addEmployee();
             }
-            else if (answer.choice === "Update an Employee Position") {
-                update.updatePosition();
+            else if (answer.choice === "Update Employee Role") {
+                update.updateRole();
             }
-            else if (answer.choice === "Close this application") {
+            else if (answer.choice === "EXIT") {
                 connection.end();
                 return
             }
