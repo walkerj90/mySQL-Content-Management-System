@@ -1,22 +1,52 @@
-const mysql = require('mysql');
-const inquirer = require('inquirer');
-const consoleTable = require('console-table');
+var mysql = require("mysql");
+var inq = require("inquirer");
+var table = require("console.table");
+var add = require("./lib/add");
+var update = require("./lib/update");
+var view = require("./lib/view");
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-
-    // Your port; if not 3306
+var connection = mysql.createConnection({
+    host: "localhost",
     port: 3306,
-
-    // Your username
-    user: 'root',
-
-    // Be sure to update with your own MySQL password!
-    password: 'Password',
-    database: 'content',
+    user: "root",
+    password: "eumamgreshit5",
+    database: "company_db"
 });
 
-connection.connect((err) => {
+connection.connect(function (err) {
     if (err) throw err;
-    runSearch();
+    console.log("connected as id " + connection.threadId + "\n");
+    exports.start();
 });
+
+exports.start = () => {
+    inq.prompt([
+        {
+            type: "list",
+            message: "What would you like to do?",
+            name: "choice",
+            choices: [
+                "View All Employees",
+                "Add an Employee",
+                "Update an Employee Position",
+                "Close this application"
+            ]
+        }
+    ])
+        .then(function (answer) {
+            if (answer.choice === "View All Employees") {
+                view.viewAllEmployees();
+            }
+            else if (answer.choice === "Add an Employee") {
+                add.addEmployee();
+            }
+            else if (answer.choice === "Update an Employee Position") {
+                update.updatePosition();
+            }
+            else if (answer.choice === "Close this application") {
+                connection.end();
+                return
+            }
+        });
+
+};

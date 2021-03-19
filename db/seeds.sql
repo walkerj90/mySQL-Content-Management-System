@@ -1,5 +1,5 @@
 INSERT INTO department (dept_name) VALUES ('Warehouse'), ('Office'), ('Management');
-INSERT INTO company_role (title, salary, dept_id) VALUES
+INSERT INTO company_position (title, salary, dept_id) VALUES
 ('General Manager', 80000.00, 3), 
 ('Head Supervisor', 60000.00, 1),
 ('Shift Supervisor', 30000.00, 1),
