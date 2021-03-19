@@ -13,7 +13,7 @@ Clone a repository; once cloned run npm install to download the necessary files 
  * Add an Employee
  * Update Employees Role 
 
-
+![cms](https://user-images.githubusercontent.com/72112742/111742176-e79e5880-8844-11eb-83bf-c7dd2088d439.gif)
 
 ----------------------
 
